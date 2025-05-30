@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Utama</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Halaman Utama</a></li>
+      <li><a href="biodata.html">Halaman Biodata</a></li>
+      <li><a href="tentang.html">Halaman Tentang Anda</a></li>
+      <li><a href="hobi.html">Halaman Hobi</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <form onsubmit="input(); return false;">
+        <label for="nama">Nama:</label><br />
+        <input type="text" id="nama" name="nama" required /><br /><br />
+
+        <label for="nim">NIM:</label><br />
+        <input type="text" id="nim" name="nim" required /><br /><br />
+
+        <label>Peminatan:</label><br />
+        <input type="radio" id="web" name="peminatan" value="Web Development" required />
+        <label for="web">Web Development</label><br />
+        <input type="radio" id="mobile" name="peminatan" value="Mobile Development" />
+        <label for="mobile">Mobile Development</label><br />
+        <input type="radio" id="data" name="peminatan" value="Data Science" />
+        <label for="data">Data Science</label><br /><br />
+
+        <label for="angkatan">Angkatan:</label><br />
+        <select id="angkatan" name="angkatan" required>
+          <option value="">--Pilih Angkatan--</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+        </select><br /><br />
+
+        <label for="tanggal">Tanggal Lahir:</label><br />
+        <input type="date" id="tanggal" name="tanggal" required /><br /><br />
+
+        <input type="submit" value="Kirim" />
+      </form>
+    </div>
+  </section>
+
+  <script>
+    function input() {
+      const nama = document.getElementById("nama").value;
+      const nim = document.getElementById("nim").value;
+      const peminatan = document.querySelector('input[name="peminatan"]:checked')?.value || "Tidak dipilih";
+      const angkatan = document.getElementById("angkatan").value;
+      const tanggal = document.getElementById("tanggal").value;
+
+      alert(
+        `Nama: ${nama}\n` +
+        `NIM: ${nim}\n` +
+        `Peminatan: ${peminatan}\n` +
+        `Angkatan: ${angkatan}\n` +
+        `Tanggal Lahir: ${tanggal}`
+      );
+    }
+  </script>
+</body>
+</html>
